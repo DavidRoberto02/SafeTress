@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SafeTress</string>
+    <string name="logo_aplication">Logo de la aplicacion</string>
+    <string name="text_welcome_subtitle">Selecciona la mejor opcion</string>
+    <string name="text_welcome_subtitle2">Seguro y rentable</string>
+    <string name="text_create_account">Crear cuenta</string>
+    <string name="text_have_an_account">¿Ya tiene una cuenta?</string>
+    <string name="text_sign_in">Iniciar Sesion</string>
+</resources>
