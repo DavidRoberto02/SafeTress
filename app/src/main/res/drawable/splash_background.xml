@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+
+    <item android:drawable="@color/green_splash"/>
+
+    <item
+        android:left="10dp"
+        android:right="10dp"
+        android:top="260dp"
+        android:bottom="260dp">
+
+
+        <bitmap android:src="@drawable/arbol_splash"/>
+
+    </item>
+
+</layer-list>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "149001322140",
+    "project_id": "safetress-56850",
+    "storage_bucket": "safetress-56850.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149001322140:android:72d14d734616c5f7a83759",
+        "android_client_info": {
+          "package_name": "app.safetress.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149001322140-l4urb5l78imlloddr8ui8rqqmv5lhsnd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3RDHtLdKiSxaXoE-6KyPuUudO-gDWTAI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149001322140-l4urb5l78imlloddr8ui8rqqmv5lhsnd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

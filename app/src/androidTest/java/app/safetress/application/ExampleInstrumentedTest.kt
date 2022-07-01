@@ -1,4 +1,4 @@
-package com.example.safetress
+package app.safetress.application
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

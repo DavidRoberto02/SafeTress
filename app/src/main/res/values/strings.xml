@@ -6,4 +6,23 @@
     <string name="text_create_account">Crear cuenta</string>
     <string name="text_have_an_account">¿Ya tiene una cuenta?</string>
     <string name="text_sign_in">Iniciar Sesion</string>
+    <string name="text_title_signup">Registrate</string>
+    <string name="view_rectangle">view</string>
+    <string name="text_email_signup">Correo Electronico</string>
+    <string name="text_name_user_signup">Nombre de usuario</string>
+    <string name="text_password_signup">Contraseña</string>
+    <string name="sign_up_activity_title">Registrarse</string>
+    <string name="welcome_to_login_activity">Bienvenido a SafeTress</string>
+    <string name="btn_login_user">Iniciar sesion</string>
+    <string name="text_forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="text_title_signin">"Iniciar Sesion "</string>
+    <string name="welcome_login_success">Bienvenido</string>
+    <string name="main_error">Error</string>
+    <string name="main_message_error">Ha ocurrido un error autenticando al usuario</string>
+    <string name="main_btn_positive_sckbr">Aceptar</string>
+    <string name="init_session_with_google">Iniciar sesion con Google</string>
+    <string name="title_activity_tree">TreeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

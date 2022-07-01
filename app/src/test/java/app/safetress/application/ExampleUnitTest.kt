@@ -1,4 +1,4 @@
-package com.example.safetress
+package app.safetress.application
 
 import org.junit.Test
 

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.safetress">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,14 +13,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SafeTress">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name="app.safetress.application.TreeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_tree" />
+        <activity
+            android:name="app.safetress.application.splashscreen.SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="app.safetress.application.MainActivity"
+            android:theme="@style/ThemeNoActionBar" />
+        <activity
+            android:name="app.safetress.application.SignUpActivity"
+            android:exported="true"
+            android:parentActivityName="app.safetress.application.MainActivity" />
+        <activity
+            android:name="app.safetress.application.LoginActivity"
+            android:exported="true"
+            android:parentActivityName="app.safetress.application.MainActivity" />
     </application>
 
 </manifest>
