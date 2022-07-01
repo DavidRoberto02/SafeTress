@@ -13,10 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SafeTress">
         <activity
-            android:name="app.safetress.application.TreeActivity"
-            android:exported="false"
-            android:label="@string/title_activity_tree" />
-        <activity
             android:name="app.safetress.application.splashscreen.SplashActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
@@ -37,6 +33,9 @@
             android:name="app.safetress.application.LoginActivity"
             android:exported="true"
             android:parentActivityName="app.safetress.application.MainActivity" />
+        <activity
+            android:name="app.safetress.application.MainActivityFr"
+            android:exported="true" />
     </application>
 
 </manifest>

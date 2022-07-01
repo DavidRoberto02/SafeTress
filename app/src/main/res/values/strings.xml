@@ -21,8 +21,12 @@
     <string name="main_message_error">Ha ocurrido un error autenticando al usuario</string>
     <string name="main_btn_positive_sckbr">Aceptar</string>
     <string name="init_session_with_google">Iniciar sesion con Google</string>
-    <string name="title_activity_tree">TreeActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="server_client_id">149001322140-l4urb5l78imlloddr8ui8rqqmv5lhsnd.apps.googleusercontent.com</string>
+
+    <string name="title_Recomends">Recomendaciones</string>
+    <string name="title_profile">Usuario</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_add">Agregar</string>
 </resources>

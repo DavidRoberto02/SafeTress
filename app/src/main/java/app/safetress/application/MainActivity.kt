@@ -3,7 +3,6 @@ package app.safetress.application
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import app.safetress.application.utils.Constants
 import com.example.safetress.R
 import com.example.safetress.databinding.ActivityMainBinding
@@ -12,10 +11,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,15 +33,14 @@ class MainActivity : AppCompatActivity() {
 
         //Configuracion de google SignIn
         val googleSignInOptions =
-            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
+            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.server_client_id))
                 .requestEmail()
                 .build()
         mGoogleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
 
         //init firebase auth
         mFirebaseAuth = FirebaseAuth.getInstance()
-        initUser()
 
         binding.btnSigninGoogle.setOnClickListener {
             val intent = mGoogleSignInClient.signInIntent
@@ -51,31 +49,49 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun initUser() {
-        // check if user is logged in or not
-        val firebaseUser = mFirebaseAuth.currentUser
-        if (firebaseUser != null){
-            //start profile activity
-            startActivity(Intent(this@MainActivity, ))
-            finish()
+    // onActivityResult() function : this is where
+    // we provide the task and data for the Google Account
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Constants.RC_SIGN_IN) {
+            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+            handleResult(task)
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+    private fun handleResult(task: Task<GoogleSignInAccount>) {
+        try {
+            val account: GoogleSignInAccount? = task.getResult(ApiException::class.java)
+            if (account != null) {
+                UpdateUI(account)
+            }
+        } catch (e: ApiException) {
+            Snackbar.make(binding.root, e.toString(), Snackbar.LENGTH_SHORT).show()
+        }
+    }
 
-        if (requestCode == Constants.RC_SIGN_IN) {
-            Log.d(Constants.TAG, "onActivityResult: GoogleSignIn intent result")
-            val accountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                //Google SignIn Success
-                val accountAuthenticator = accountTask.getResult(ApiException::class.java)
-                firebaseAuthWithGoogleAccount(accountAuthenticator)
+    private fun UpdateUI(account: GoogleSignInAccount) {
+        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+        mFirebaseAuth.signInWithCredential(credential).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
 
-            } catch (e: Exception) {
-                Log.d(Constants.TAG, "onActivityResult: ${e.message}")
+                // if is successful navigate activity to home fragment
+                /*val fragment = HomeFragment()
+                val fragmentManager = supportFragmentManager
+                val fragmentTransaction = fragmentManager.beginTransaction()
+
+                fragmentTransaction.add(R.id.mainContainter, fragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()*/
+                val i = Intent(this@MainActivity, MainActivityFr::class.java)
+                startActivity(i)
+                finish()
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
     }
 
 
@@ -87,54 +103,6 @@ class MainActivity : AppCompatActivity() {
     private fun createAccount() {
         val intent = Intent(this@MainActivity, SignUpActivity::class.java)
         startActivity(intent)
-    }
-
-    private fun firebaseAuthWithGoogleAccount(accountAuthenticator: GoogleSignInAccount?) {
-        Log.d(
-            Constants.TAG,
-            "firebaseAuthWithGoogleAccount: begin firebase auth with google account "
-        )
-        val credential = GoogleAuthProvider.getCredential(accountAuthenticator?.idToken, null)
-        mFirebaseAuth.signInWithCredential(credential)
-            .addOnSuccessListener { authResult ->
-                Log.d(Constants.TAG, "firebaseAuthWithGoogleAccount: LoggedIn")
-
-                //get loggedIn user
-                val firebaseUser = mFirebaseAuth.currentUser
-                //get user info
-                val uid = firebaseUser!!.uid
-                val email = firebaseUser!!.email
-
-                Log.d(Constants.TAG, "firebaseAuthWithGoogleAccount: Email: $uid")
-                Log.d(Constants.TAG, "firebaseAuthWithGoogleAccount: Email: $email")
-
-                //check if user is new or existing
-                if (authResult.additionalUserInfo!!.isNewUser) {
-                    Log.d(
-                        Constants.TAG,
-                        "firebaseAuthWithGoogleAccount: Account created... \n$email"
-                    )
-                    Snackbar.make(binding.root, "Account created... $email", Snackbar.LENGTH_SHORT)
-                        .show()
-                } else {
-                    //existing user - loggedIN
-                    Log.d(
-                        Constants.TAG,
-                        "firebaseAuthWithGoogleAccount: Existing user... \n$email"
-                    )
-                    Snackbar.make(binding.root, "LoggedIn... $email", Snackbar.LENGTH_SHORT)
-                        .show()
-                }
-
-                //start profile activity
-                startActivity(Intent(this@MainActivity, ))
-                finish()
-            }
-            .addOnFailureListener { e ->
-                Log.d(Constants.TAG, "firebaseAuthWithGoogleAccount: Loggin Failed due to ${e.message}")
-                Snackbar.make(binding.root, "Loggin Failed due to ${e.message}", Snackbar.LENGTH_SHORT)
-                    .show()
-            }
     }
 
 

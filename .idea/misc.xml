@@ -3,16 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.18489583333333334" />
         <entry key="../../.gradle/caches/transforms-3/c2de38c8048fef95cd2e85cc37e3f411/transformed/play-services-base-18.0.1/res/drawable/common_google_signin_btn_icon_dark_focused.xml" value="0.1985" />
         <entry key="../../.gradle/caches/transforms-3/c2de38c8048fef95cd2e85cc37e3f411/transformed/play-services-base-18.0.1/res/drawable/common_google_signin_btn_icon_dark_normal.xml" value="0.1985" />
+        <entry key="app/src/main/res/drawable/bottom_nav_corner.xml" value="0.1445" />
+        <entry key="app/src/main/res/drawable/bottom_nav_rounded.xml" value="0.1445" />
         <entry key="app/src/main/res/drawable/circle_view.xml" value="0.1985" />
         <entry key="app/src/main/res/drawable/gradient_drawable.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/ic_email.xml" value="0.1985" />
+        <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1985" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1985" />
+        <entry key="app/src/main/res/drawable/ic_lock.xml" value="0.1985" />
         <entry key="app/src/main/res/drawable/rectangle_view.xml" value="0.205" />
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.205" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main_fr.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.397741530740276" />
+        <entry key="app/src/main/res/layout/fragment_add.xml" value="0.3302083333333333" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.3302083333333333" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3302083333333333" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3302083333333333" />
+        <entry key="app/src/main/res/layout/fragment_recommendation.xml" value="0.3302083333333333" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3302083333333333" />
       </map>
     </option>
   </component>
