@@ -29,4 +29,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_add">Agregar</string>
+    <string name="signOut">Cerrar sesion</string>
+    <string name="dialogo_exitoso">Registro exitoso.</string>
+    <string name="dialogo_datos_insuficientes">Te falto llenar un campo.</string>
+    <string name="dialogo_aceptar">Aceptar</string>
+    <string name="text_sign_out">Sesion cerrada.</string>
+    <string name="text_create_account_failed">Registro fallido.</string>
 </resources>
