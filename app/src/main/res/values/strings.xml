@@ -25,8 +25,9 @@
     <string name="server_client_id">149001322140-l4urb5l78imlloddr8ui8rqqmv5lhsnd.apps.googleusercontent.com</string>
 
     <string name="title_Recomends">Recomendaciones</string>
-    <string name="title_profile">Usuario</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_profile">Usuario</string>\
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_add">Agregar</string>
     <string name="signOut">Cerrar sesion</string>
@@ -35,4 +36,21 @@
     <string name="dialogo_aceptar">Aceptar</string>
     <string name="text_sign_out">Sesion cerrada.</string>
     <string name="text_create_account_failed">Registro fallido.</string>
+
+    <string name="facebook_app_id">1037661130443801</string>
+    <string name="facebook_application_id">1037661130443801</string>
+    <string name="fb_login_protocol_scheme">13879618a9ed1ae4e0fcdf7d5e41e05c</string>
+    <string name="facebook_client_token">27b85fe1f1646d0ae550f113a5935286</string>
+    <string name="search_hint">Buscar arboles por estado...</string>
+    <string name="description_img_photo">Imagen del arbol</string>
+    <string name="text_title_home">¿Dónde desea plantar su arbol?</string>
+    <string name="text_title_add">Sube tus consejos para tener un buen árbol</string>
+    <string name="counter_max_caracteres">Maximo de caracteres:</string>
+    <string name="description_image">Imagen de la recomendacion</string>
+    <string name="button_image_description">Boton para subir la imagen</string>
+    <string name="text_description_recommendation">Descripcion...</string>
+    <string name="text_recommendation_title">Recomendacion</string>
+    <string name="submit_button_text">Publicar</string>
+
+
 </resources>

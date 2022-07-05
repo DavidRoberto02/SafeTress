@@ -1,13 +1,126 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/common_padding_min"
     tools:context="app.safetress.application.AddFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTitleAdd"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_padding_min"
+        android:layout_marginTop="@dimen/common_padding_min"
+        android:layout_marginEnd="@dimen/common_padding_min"
+        android:padding="@dimen/common_padding_min"
+        android:text="@string/text_title_add"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/numans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilRecommendation"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:counterEnabled="true"
+        app:counterMaxLength="@integer/contador_max_caracteres"
+        app:endIconMode="clear_text"
+        app:helperText="@string/counter_max_caracteres"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleAdd"
+        app:startIconDrawable="@drawable/ic_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRecommendation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/text_recommendation_title"
+            android:inputType="text"
+            android:maxLines="@integer/contador_max_caracteres" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDescription"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_padding_default"
+        android:visibility="gone"
+        app:counterEnabled="true"
+        app:counterMaxLength="@integer/contador_max_caracteres_description"
+        app:endIconMode="clear_text"
+        app:helperText="@string/counter_max_caracteres"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilRecommendation"
+        app:startIconDrawable="@drawable/ic_description">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/text_description_recommendation"
+            android:inputType="text"
+            android:maxLines="@integer/contador_max_caracteres" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <ImageView
+        android:id="@+id/imgPhoto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/common_padding_min"
+        android:contentDescription="@string/description_image"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="H, 4:3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilDescription" />
+
+    <ImageButton
+        android:id="@+id/btnSelect"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@string/button_image_description"
+        android:src="@drawable/ic_image_search"
+        app:layout_constraintBottom_toBottomOf="@id/imgPhoto"
+        app:layout_constraintEnd_toEndOf="@+id/imgPhoto"
+        app:layout_constraintStart_toStartOf="@+id/imgPhoto"
+        app:layout_constraintTop_toTopOf="@id/imgPhoto" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_padding_min"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgPhoto" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPost"
+        android:layout_width="290dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/common_padding_default"
+        android:text="@string/submit_button_text"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
