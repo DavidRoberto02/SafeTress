@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/common_padding_min"
-    tools:context="app.safetress.application.AddFragment">
+    tools:context="app.safetress.application.addModule.AddFragment">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvTitleAdd"

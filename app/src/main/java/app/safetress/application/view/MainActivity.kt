@@ -10,10 +10,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import app.safetress.application.*
+import app.safetress.application.addModule.AddFragment
 import com.example.safetress.R
 import com.example.safetress.databinding.ActivityMainBinding
 import com.facebook.FacebookSdk
-import com.facebook.appevents.AppEventsLogger
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.android.material.snackbar.Snackbar

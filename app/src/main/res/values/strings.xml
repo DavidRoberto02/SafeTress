@@ -51,6 +51,9 @@
     <string name="text_description_recommendation">Descripcion...</string>
     <string name="text_recommendation_title">Recomendacion</string>
     <string name="submit_button_text">Publicar</string>
+    <string name="text_image_recommendation">Imagen de la recomendacion</string>
+    <string name="btn_delete_post">Boton de eliminar</string>
+    <string name="text_name_user_item">Nombre de la recomendacion</string>
 
 
 </resources>
