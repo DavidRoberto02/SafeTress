@@ -1,4 +1,4 @@
-package app.safetress.application
+package app.safetress.application.utils
 
 interface HomeAux {
     fun goToTop()

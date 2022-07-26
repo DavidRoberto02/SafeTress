@@ -15,6 +15,7 @@
         android:background="?attr/selectableItemBackground"
         android:text="@string/text_name_user_item"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cbLike"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView

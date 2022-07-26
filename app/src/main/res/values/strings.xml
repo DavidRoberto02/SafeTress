@@ -54,6 +54,14 @@
     <string name="text_image_recommendation">Imagen de la recomendacion</string>
     <string name="btn_delete_post">Boton de eliminar</string>
     <string name="text_name_user_item">Nombre de la recomendacion</string>
+    <string name="required_texts">Llene todos los campos.</string>
+    <string name="post_publicado">Post publicado.</string>
+    <string name="post_message_title">Sube tus consejos para tener un buen arbol</string>
+    <string name="instantanea_fallida">Hubo un error, intentalo de nuevo.</string>
+    <string name="post_message_valid_title">Porfavor, llena todos los datos</string>
+    <string name="dialog_delete_snapshot">Desea eliminar el post?</string>
+    <string name="dialog_delete_confirm">Eliminar</string>
+    <string name="dialog_delete_cancel">Cancelar</string>
 
 
 </resources>

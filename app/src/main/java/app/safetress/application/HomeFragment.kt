@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import app.safetress.application.utils.HomeAux
 import com.example.safetress.R
 
 class HomeFragment : Fragment(), HomeAux {
