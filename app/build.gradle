@@ -54,8 +54,8 @@ dependencies {
     //Firebase Auth, realtime database. storage
     implementation platform('com.google.firebase:firebase-bom:30.2.0')
     // FirebaseUI for Firebase Auth
-    implementation 'com.google.firebase:firebase-database-ktx:20.0.5'
-    implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.6'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.2'
 
     // FirebaseUI for Firebase Realtime Database
     implementation 'com.firebaseui:firebase-ui-database:7.1.1'

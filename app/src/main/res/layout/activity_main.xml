@@ -9,10 +9,10 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:elevation="4dp"
-        android:layout_margin="@dimen/common_padding_max"
+        android:layout_margin="@dimen/common_padding_default"
         app:backgroundTint="#CBCBCB"
         android:background="@drawable/bottom_nav_corner"
         app:layout_constraintBottom_toBottomOf="parent"

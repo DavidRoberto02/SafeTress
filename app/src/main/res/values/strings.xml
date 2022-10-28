@@ -43,7 +43,7 @@
     <string name="facebook_client_token">27b85fe1f1646d0ae550f113a5935286</string>
     <string name="search_hint">Buscar arboles por estado...</string>
     <string name="description_img_photo">Imagen del arbol</string>
-    <string name="text_title_home">¿Dónde desea plantar su arbol?</string>
+    <string name="text_title_home">¿En que estado de mexico se encuentra?</string>
     <string name="text_title_add">Sube tus consejos para tener un buen árbol</string>
     <string name="counter_max_caracteres">Maximo de caracteres:</string>
     <string name="description_image">Imagen de la recomendacion</string>

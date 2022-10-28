@@ -10,7 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import app.safetress.application.addModule.entities.TreeEntity
+import app.safetress.application.addModule.entities.TreeFeedHome
 import com.example.safetress.R
 import com.example.safetress.databinding.FragmentAddBinding
 import com.google.android.material.snackbar.Snackbar
@@ -96,10 +96,13 @@ class AddFragment : Fragment() {
                     )
                         .show()
                     it.storage.downloadUrl.addOnSuccessListener { result ->
-                        saveThree(key, result.toString(), binding.etDescription.text.toString().trim(),
-                        binding.etRecommendation.text.toString().trim())
+                        saveThree(
+                            key, result.toString(), binding.etDescription.text.toString().trim(),
+                            binding.etRecommendation.text.toString().trim()
+                        )
                         binding.tilRecommendation.visibility = View.GONE
                         binding.tilDescription.visibility = View.GONE
+                        binding.imgPhoto.setImageURI(null)
                         binding.tvTitleAdd.text = getString(R.string.post_message_title)
                     }
                 }
@@ -115,7 +118,7 @@ class AddFragment : Fragment() {
 
 
     private fun saveThree(key: String, url: String, description: String, name: String) {
-        val treeEntity = TreeEntity( photoUrl = url, description = description, name = name)
+        val treeEntity = TreeFeedHome(photoUrl = url, state = description, name = name)
         mDatabaseReference.child(key).setValue(treeEntity)
     }
 }

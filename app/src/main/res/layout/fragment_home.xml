@@ -3,46 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="app.safetress.application.HomeFragment">
+    tools:context="app.safetress.application.homeModule.HomeFragment">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvTitle"
+        style="?attr/textAppearanceHeadline6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_padding_min"
         android:padding="@dimen/common_padding_min"
         android:text="@string/text_title_home"
         android:textAlignment="textStart"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:fontFamily="@font/numans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/svByStates"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_padding_min"
-        android:iconifiedByDefault="false"
-        android:queryHint="@string/search_hint"
-        app:iconifiedByDefault="false"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:queryHint="@string/search_hint" />
-
+        <SearchView
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:hint="@string/search_hint"
+            android:maxLines="1"
+            android:drawableStart="@drawable/ic_search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_padding_default"
+        android:layout_marginBottom="@dimen/common_padding_min"
         android:nestedScrollingEnabled="false"
         tools:listitem="@layout/item_tree"
-        app:layout_constraintTop_toBottomOf="@+id/svByStates"
+        app:layout_constraintTop_toBottomOf="@+id/etSearch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

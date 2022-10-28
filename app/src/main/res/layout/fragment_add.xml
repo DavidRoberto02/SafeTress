@@ -16,7 +16,6 @@
         android:padding="@dimen/common_padding_min"
         android:text="@string/text_title_add"
         android:textAlignment="textStart"
-        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:fontFamily="@font/numans"

@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import app.safetress.application.*
 import app.safetress.application.addModule.view.AddFragment
+import app.safetress.application.homeModule.HomeFragment
 import app.safetress.application.recommendsModule.RecommendationFragment
 import app.safetress.application.utils.HomeAux
 import com.example.safetress.R
