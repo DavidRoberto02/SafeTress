@@ -10,7 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import app.safetress.application.addModule.entities.TreeFeedHome
+import app.safetress.application.homeModule.entities.TreeFeedHome
 import com.example.safetress.R
 import com.example.safetress.databinding.FragmentAddBinding
 import com.google.android.material.snackbar.Snackbar

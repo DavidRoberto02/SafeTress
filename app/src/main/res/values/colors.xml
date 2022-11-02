@@ -11,5 +11,6 @@
     <color name="blue_signin">#4BC8FE</color>
     <color name="green_splash">#344E41</color>
     <color name="color_white_t">#CCFFFFFF</color>
+    <color name="color_divider">#1e000000</color>
 
 </resources>

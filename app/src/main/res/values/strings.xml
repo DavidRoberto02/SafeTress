@@ -62,6 +62,10 @@
     <string name="dialog_delete_snapshot">Desea eliminar el post?</string>
     <string name="dialog_delete_confirm">Eliminar</string>
     <string name="dialog_delete_cancel">Cancelar</string>
+    <string name="image_detail_description">Imagen de la recomendacion</string>
+    <string name="text_title_detail">Nombre</string>
+    <string name="text_description_detail">Descripcion de la recomendacion</string>
+    <string name="text_phrase">Esperamos que te haya servido la recomendacion!</string>
 
 
 </resources>

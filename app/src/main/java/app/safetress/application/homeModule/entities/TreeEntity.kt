@@ -1,4 +1,4 @@
-package app.safetress.application.addModule.entities
+package app.safetress.application.homeModule.entities
 
 import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties

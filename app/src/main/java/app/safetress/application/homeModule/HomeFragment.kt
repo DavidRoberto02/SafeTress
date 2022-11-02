@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import app.safetress.application.addModule.entities.TreeFeedHome
+import app.safetress.application.homeModule.entities.TreeFeedHome
 import app.safetress.application.utils.HomeAux
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -19,7 +19,6 @@ import com.example.safetress.databinding.FragmentHomeBinding
 import com.example.safetress.databinding.ItemRecommendationBinding
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -135,18 +134,6 @@ class HomeFragment : Fragment(), HomeAux {
     }
 
 
-    private fun deletePost(treeFeed: TreeFeedHome) {
-        //alertDialog
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle(R.string.dialog_delete_snapshot)
-            .setPositiveButton(R.string.dialog_delete_confirm) { _, _ ->
-                val databaseReference = FirebaseDatabase.getInstance().reference.child("arboles")
-                databaseReference.child(treeFeed.id).removeValue()
-            }
-            .setNegativeButton(R.string.dialog_delete_cancel, null)
-            .show()
-    }
-
     private fun setLike(treeFeed: TreeFeedHome, checked: Boolean) {
         val databaseReference = FirebaseDatabase.getInstance().reference.child("arboles")
         if (checked) {
@@ -162,7 +149,6 @@ class HomeFragment : Fragment(), HomeAux {
         val binding = ItemRecommendationBinding.bind(view)
 
         fun setListener(treeFeed: TreeFeedHome) {
-            binding.cbDelete.setOnClickListener { deletePost(treeFeed) }
             binding.cbLike.setOnCheckedChangeListener { _, checked ->
                 setLike(treeFeed, checked)
             }

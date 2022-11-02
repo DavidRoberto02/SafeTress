@@ -2,4 +2,5 @@
 <resources>
     <integer name="contador_max_caracteres">30</integer>
     <integer name="contador_max_caracteres_description">500</integer>
+    <integer name="main_columns">1</integer>
 </resources>

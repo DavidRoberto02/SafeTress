@@ -12,11 +12,6 @@
         android:title="@string/title_Recomends" />
 
     <item
-        android:id="@+id/action_add"
-        android:icon="@drawable/ic_add_comment"
-        android:title="@string/title_add" />
-
-    <item
         android:id="@+id/action_profile"
         android:icon="@drawable/ic_person"
         android:title="@string/title_profile" />

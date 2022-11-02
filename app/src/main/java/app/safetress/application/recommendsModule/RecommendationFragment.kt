@@ -1,34 +1,28 @@
 package app.safetress.application.recommendsModule
 
-import android.annotation.SuppressLint
-import android.content.Context
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import app.safetress.application.addModule.entities.TreeFeedHome
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
+import androidx.fragment.app.commit
+import androidx.recyclerview.widget.GridLayoutManager
+import app.safetress.application.recommendsModule.recyclerview.adapter.RecommendsAdapter
+import app.safetress.application.recommendsModule.recyclerview.entiti.TreeEntityHome
+import app.safetress.application.recommendsModule.recyclerview.jsonData.RecommendationProvider
+import app.safetress.application.recommendsModule.recyclerview.utils.OnClickListener
 import com.example.safetress.R
 import com.example.safetress.databinding.FragmentRecommendationBinding
-import com.example.safetress.databinding.ItemRecommendationBinding
-import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
+import org.imaginativeworld.whynotimagecarousel.model.CarouselType
 
-class RecommendationFragment : Fragment() {
+class RecommendationFragment : Fragment(), OnClickListener {
 
     private lateinit var binding: FragmentRecommendationBinding
-
-    private lateinit var mFirebaseAdapter: FirebaseRecyclerAdapter<TreeFeedHome, SnapshotHolder>
-    private lateinit var mLayoutManager: RecyclerView.LayoutManager
-
+    private lateinit var mAdapter: RecommendsAdapter
+    private lateinit var mGridLayout: GridLayoutManager
+    val list = mutableListOf<CarouselItem>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,117 +35,97 @@ class RecommendationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val query = FirebaseDatabase.getInstance().reference.child("arboles")
 
-        val options =
-            FirebaseRecyclerOptions.Builder<TreeFeedHome>().setQuery(query) {
-                val snapshot = it.getValue(TreeFeedHome::class.java)
-                snapshot!!.id = it.key!!
-                snapshot
-            }.build()
+        initCarousel()
+        initRecyclerView()
+    }
 
-        mFirebaseAdapter = object : FirebaseRecyclerAdapter<TreeFeedHome, SnapshotHolder>(options) {
-            private lateinit var mContext: Context
-
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SnapshotHolder {
-                mContext = parent.context
-
-                val view = LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_recommendation, parent, false)
-                return SnapshotHolder(view)
-            }
-
-            override fun onBindViewHolder(
-                holder: SnapshotHolder,
-                position: Int,
-                model: TreeFeedHome
-            ) {
-                val treeEntity = getItem(position)
-
-                with(holder) {
-                    setListener(treeEntity)
-
-                    binding.tvDescriptionRecommendation.text = treeEntity.state
-                    binding.tvNameRecommendation.text = treeEntity.name
-                    Glide.with(mContext)
-                        .load(treeEntity.photoUrl)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .centerCrop()
-                        .into(binding.ivPhoto)
-                    binding.cbLike.text = treeEntity.like.keys.size.toString()
-                    FirebaseAuth.getInstance().currentUser?.let {
-                        binding.cbLike.isChecked = treeEntity.like
-                            .containsKey(it.uid)
-                    }
-                }
-            }
-
-            @SuppressLint("NotifyDataSetChanged") //error interno firebase ui 8.0.0
-            override fun onDataChanged() {
-                super.onDataChanged()
-                binding.progressBar.visibility = View.GONE
-                notifyDataSetChanged()
-            }
-
-            override fun onError(error: DatabaseError) {
-                super.onError(error)
-                //Toast.makeText(mContext, error.message, Toast.LENGTH_SHORT).show()
-            }
-        }
+    private fun initCarousel() {
+        list.add(
+            CarouselItem(
+                "https://s3-us-west-2.amazonaws.com/cdn01.pucp.education/climadecambios/wp-content/uploads/2020/06/04224953/webclimaDMMA.jpg",
+                "Cuidado del arbol"
+            )
+        )
+        list.add(
+            CarouselItem(
+                "https://static.vecteezy.com/system/resources/previews/006/625/069/non_2x/humans-are-planting-trees-on-the-soil-with-two-hands-environmental-care-concept-by-planting-plants-photo.jpg",
+                "Planta"
+            )
+        )
+        list.add(
+            CarouselItem(
+                "https://www.eimenuts.com/app/uploads/sin-t_tulo-2.jpg",
+                "Cuidado del arbol"
+            )
+        )
+        list.add(
+            CarouselItem(
+                "https://fundacionpernodricardnola.org/blog/wp-content/uploads/2021/06/CharcoBendito-30-1024x683.jpg",
+                "Planta un arbol"
+            )
+        )
+        list.add(
+            CarouselItem(
+                "https://www.radioestacion.com.ar/wp-content/uploads/2021/08/f1280x720-136859_268534_5050-770x470.jpg",
+                "Un árbol es un ser que vive para darnos vida."
+            )
+        )
+        list.add(
+            CarouselItem(
+                "https://www.reddearboles.org/nwlib6/includes/phpthumb/phpThumb.php?src=/imagenes/reforestacion.jpeg&w=700&f=jpeg",
+                "Ayuda al planeta"
+            )
+        )
+        list.add(
+            CarouselItem(
+                "https://images.milenio.com/r_akh9ZbvNqzXkfx4CNOzIEL8IU=/936x566/uploads/media/2019/07/11/plantacion-arboles-cuidado-ninos-acercar.jpg",
+                "Los árboles ciertamente tienen corazones."
+            )
+        )
+        binding.carousel.addData(list)
+        binding.carousel.start()
 
 
-        mLayoutManager = LinearLayoutManager(context)
+        return list.clear()
+    }
 
-        binding.recyclerView.apply {
+    private fun initRecyclerView() {
+        mAdapter = RecommendsAdapter(this, RecommendationProvider.recommendationJson)
+        mGridLayout = GridLayoutManager(
+            this.context,
+            resources.getInteger(R.integer.main_columns),
+            GridLayoutManager.HORIZONTAL,
+            false
+        )
+        binding.recyclerViewR.apply {
             setHasFixedSize(true)
-            layoutManager = mLayoutManager
-            adapter = mFirebaseAdapter
-        }
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-        mFirebaseAdapter.startListening()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        mFirebaseAdapter.stopListening()
-    }
-
-    private fun deletePost(treeFeed: TreeFeedHome) {
-        //alertDialog
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle(R.string.dialog_delete_snapshot)
-            .setPositiveButton(R.string.dialog_delete_confirm) { _, _ ->
-                val databaseReference = FirebaseDatabase.getInstance().reference.child("arboles")
-                databaseReference.child(treeFeed.id).removeValue()
-            }
-            .setNegativeButton(R.string.dialog_delete_cancel, null)
-            .show()
-    }
-
-    private fun setLike(treeFeed: TreeFeedHome, checked: Boolean) {
-        val databaseReference = FirebaseDatabase.getInstance().reference.child("arboles")
-        if (checked) {
-            databaseReference.child(treeFeed.id).child("like")
-                .child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(checked)
-        } else {
-            databaseReference.child(treeFeed.id).child("like")
-                .child(FirebaseAuth.getInstance().currentUser!!.uid).setValue(null)
+            layoutManager = mGridLayout
+            adapter = mAdapter
         }
     }
 
-    inner class SnapshotHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val binding = ItemRecommendationBinding.bind(view)
+    override fun onClick(treeEntityHome: TreeEntityHome) {
+        intent(treeEntityHome)
+    }
 
-        fun setListener(treeFeed: TreeFeedHome) {
-            binding.cbDelete.setOnClickListener { deletePost(treeFeed) }
-            binding.cbLike.setOnCheckedChangeListener { _, checked ->
-                setLike(treeFeed, checked)
-            }
+    private fun intent(treeEntityHome: TreeEntityHome) {
+        val detail = DetailFragment()
+        val fragment : Fragment? =
+            parentFragmentManager.findFragmentByTag(detail::class.java.simpleName)
+
+        if (fragment !is DetailFragment) {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.hostFragment, detail, DetailFragment::class.java.simpleName)
+                .addToBackStack(null)
+                .commit()
+            val bundle = Bundle()
+            bundle.putString("name", treeEntityHome.name)
+            bundle.putString("description", treeEntityHome.description)
+            bundle.putString("photoUrl", treeEntityHome.photoUrl)
+            requireFragmentManager().setFragmentResult("key", bundle)
         }
     }
+
 
 }

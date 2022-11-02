@@ -7,19 +7,25 @@
 
     <fragment
         android:id="@+id/action_home"
-        android:name="app.safetress.application.ui.home.HomeFragment"
+        android:name="app.safetress.application.homeModule.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/action_recommends"
-        android:name="app.safetress.application.ui.dashboard.DashboardFragment"
+        android:name="app.safetress.application.recommendsModule.RecommendationFragment"
         android:label="@string/title_Recomends"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_recommendation" />
+
+    <fragment
+        android:id="@+id/action_detail"
+        android:name="app.safetress.application.recommendsModule.DetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail" />
 
     <fragment
         android:id="@+id/action_add"
-        android:name="app.safetress.application.ui.notifications.NotificationsFragment"
+        android:name="app.safetress.application.addModule.view.AddFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_add" />
 </navigation>

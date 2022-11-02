@@ -98,31 +98,40 @@ class MainActivity : AppCompatActivity() {
         )
             .commit()
 
-        binding.bottomNav.setOnNavigationItemReselectedListener {
+        binding.bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.action_home -> {
                     mFragmentManager.beginTransaction().hide(mActiveFragment).show(homeFragment)
                         .commit()
                     mActiveFragment = homeFragment
+                    (homeFragment as HomeAux).goToTop()
+                    true
                 }
                 R.id.action_recommends -> {
                     mFragmentManager.beginTransaction().hide(mActiveFragment)
                         .show(recommendationFragment).commit()
                     mActiveFragment = recommendationFragment
+                    (homeFragment as HomeAux).goToTop()
+                    true
                 }
                 R.id.action_add -> {
                     mFragmentManager.beginTransaction().hide(mActiveFragment).show(addFragment)
                         .commit()
                     mActiveFragment = addFragment
+                    (homeFragment as HomeAux).goToTop()
+                    true
                 }
                 R.id.action_profile -> {
                     mFragmentManager.beginTransaction().hide(mActiveFragment).show(profileFragment)
                         .commit()
                     mActiveFragment = profileFragment
+                    (homeFragment as HomeAux).goToTop()
+                    true
                 }
                 else -> false
             }
         }
+
 
         binding.bottomNav.setOnItemReselectedListener {
             when (it.itemId) {
