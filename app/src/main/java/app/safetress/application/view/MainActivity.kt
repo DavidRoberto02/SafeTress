@@ -10,7 +10,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import app.safetress.application.*
-import app.safetress.application.addModule.view.AddFragment
 import app.safetress.application.homeModule.HomeFragment
 import app.safetress.application.recommendsModule.RecommendationFragment
 import app.safetress.application.utils.HomeAux
@@ -66,7 +65,6 @@ class MainActivity : AppCompatActivity() {
 
         val homeFragment = HomeFragment()
         val recommendationFragment = RecommendationFragment()
-        val addFragment = AddFragment()
         val profileFragment = ProfileFragment()
 
 
@@ -83,13 +81,6 @@ class MainActivity : AppCompatActivity() {
             recommendationFragment, RecommendationFragment::class.java.name
         )
             .hide(recommendationFragment)
-            .commit()
-
-        mFragmentManager.beginTransaction().add(
-            R.id.hostFragment,
-            addFragment, AddFragment::class.java.name
-        )
-            .hide(addFragment)
             .commit()
 
         mFragmentManager.beginTransaction().add(
@@ -111,13 +102,6 @@ class MainActivity : AppCompatActivity() {
                     mFragmentManager.beginTransaction().hide(mActiveFragment)
                         .show(recommendationFragment).commit()
                     mActiveFragment = recommendationFragment
-                    (homeFragment as HomeAux).goToTop()
-                    true
-                }
-                R.id.action_add -> {
-                    mFragmentManager.beginTransaction().hide(mActiveFragment).show(addFragment)
-                        .commit()
-                    mActiveFragment = addFragment
                     (homeFragment as HomeAux).goToTop()
                     true
                 }
@@ -147,13 +131,6 @@ class MainActivity : AppCompatActivity() {
                         .show(recommendationFragment)
                         .commit()
                     mActiveFragment = recommendationFragment
-                    (homeFragment as HomeAux).goToTop()
-                    true
-                }
-                R.id.action_add -> {
-                    mFragmentManager.beginTransaction().hide(mActiveFragment).show(addFragment)
-                        .commit()
-                    mActiveFragment = addFragment
                     (homeFragment as HomeAux).goToTop()
                     true
                 }

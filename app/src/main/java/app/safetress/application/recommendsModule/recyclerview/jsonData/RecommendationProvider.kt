@@ -5,7 +5,7 @@ import app.safetress.application.recommendsModule.recyclerview.entiti.TreeEntity
 class RecommendationProvider {
 
     companion object{
-        val recommendationJson = mutableListOf<TreeEntityHome>(
+        val recommendationJson = mutableListOf(
             TreeEntityHome(
                 0,
                 "Regar las plantas al inicio del dia ayudaran a su crecimiento.",

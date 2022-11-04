@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.commit
 import androidx.recyclerview.widget.GridLayoutManager
 import app.safetress.application.recommendsModule.recyclerview.adapter.RecommendsAdapter
 import app.safetress.application.recommendsModule.recyclerview.entiti.TreeEntityHome
@@ -15,7 +14,6 @@ import app.safetress.application.recommendsModule.recyclerview.utils.OnClickList
 import com.example.safetress.R
 import com.example.safetress.databinding.FragmentRecommendationBinding
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
-import org.imaginativeworld.whynotimagecarousel.model.CarouselType
 
 class RecommendationFragment : Fragment(), OnClickListener {
 
