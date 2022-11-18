@@ -3,6 +3,9 @@ Una Aplicacion con la tematica de cuales son las mejores opciones para plantar a
 
 ## Acerca del proyecto:
 
+En la aplicacion podras buscar los arboles que sean mejor segun tu estado en el que te encuentres, ademas de poder dar like al arbol que mas te ha gustado, puedes verificar tambien algunas recomendaciones y poder ver algunas imagenes.
+
+
 <table style="width:100%">
   <tr>
     <td>
